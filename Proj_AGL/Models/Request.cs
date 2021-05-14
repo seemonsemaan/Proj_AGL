@@ -13,6 +13,8 @@ namespace Proj_AGL.Models
         public string UserId { get; set; }
         public int StatusId { get; set; }
         public int LocationId { get; set; }
+        public DateTime RequestedDate { get; set; }
+        public virtual RequestType RequestType { get; set; }
         public virtual StatusType Status { get; set; }
         public virtual Location Location { get; set; }
     }

@@ -1,0 +1,54 @@
+﻿@model Proj_AGL.Models.Request
+
+@{
+    ViewData["Title"] = "Details";
+}
+<style>
+    .pin{
+        position: absolute;
+        width: 30px;
+        left: @{ @Model.Location.PositionX.ToString()}px;
+        top: @{@Model.Location.PositionY}px;
+    }
+</style>
+<h1>Details</h1>
+
+<div class="container row">
+    <div class="col-md-6">
+        <h4>Request</h4>
+        <hr />
+        <dl class="row">
+            <dt class="col-sm-4">
+                @Html.DisplayNameFor(model => model.Count)
+            </dt>
+            <dd class="col-sm-8">
+                @Html.DisplayFor(model => model.Count)
+            </dd>
+            <dt class="col-sm-4">
+                Request Type
+            </dt>
+            <dd class="col-sm-8">
+                @Html.DisplayFor(model => model.RequestType.Name)
+            </dd>
+            <dt class="col-sm-4">
+                @Html.DisplayNameFor(model => model.Status)
+            </dt>
+            <dd class="col-sm-8">
+                @Html.DisplayFor(model => model.Status.Name)
+            </dd>
+            <dt class="col-sm-4">
+                @Html.DisplayNameFor(model => model.Location)
+            </dt>
+            <dd class="col-sm-8">
+                @Html.DisplayFor(model => model.Location.Name)
+            </dd>
+        </dl>
+    </div>
+    <div class="col-md-6">
+        <img src="~/images/antonine-map.png" alt="map" width="510" />
+        <img src="~/images/pin.png" alt="pin" class="pin" />
+    </div>
+</div>
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
