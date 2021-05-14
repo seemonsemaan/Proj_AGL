@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Identity;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -17,5 +18,6 @@ namespace Proj_AGL.Models
         public virtual RequestType RequestType { get; set; }
         public virtual StatusType Status { get; set; }
         public virtual Location Location { get; set; }
+        public virtual IdentityUser User { get; set; }
     }
 }
