@@ -112,7 +112,10 @@ namespace Proj_AGL.Controllers
             {
                 try
                 {
-                    _context.Update(request);
+                    var dbRequest = _context.Requests.Where(r => r.Id == request.Id).FirstOrDefault();
+                    dbRequest.StatusId = request.StatusId;
+                    dbRequest.LocationId = request.LocationId;
+                    _context.Update(dbRequest);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
