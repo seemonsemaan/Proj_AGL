@@ -72,11 +72,9 @@ namespace Proj_AGL.Controllers
         {
             if (ModelState.IsValid)
             {
-                ProcessRequest(request);
+                request = ProcessRequest(request);
                 request.RequestedDate = DateTime.Now;
                 request.UserId = User.FindFirstValue(ClaimTypes.NameIdentifier);
-                request.StatusId = 1;
-                request.LocationId = 1;
                 _context.Add(request);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
