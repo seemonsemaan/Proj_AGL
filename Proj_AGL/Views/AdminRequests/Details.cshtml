@@ -51,5 +51,17 @@
 </div>
 <div>
     <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
+    @if (Model.RequestTypeId == 1)
+    {
+        <a target="_blank" asp-controller="PrintResults" asp-action="Grades" asp-route-id="@Model.Id">Print Results</a><span> |</span>
+    }
+    @if (Model.RequestTypeId == 2)
+    {
+        <a target="_blank" asp-controller="PrintResults" asp-action="FollowLessons" asp-route-id="@Model.Id">Print Results</a><span> |</span>
+    }
+    @if (Model.RequestTypeId == 3)
+    {
+        <a target="_blank" asp-controller="PrintResults" asp-action="EndOfStudy" asp-route-id="@Model.Id">Print Results</a><span> |</span>
+    }
     <a asp-action="Index">Back to List</a>
 </div>

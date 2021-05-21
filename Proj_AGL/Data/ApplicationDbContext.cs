@@ -18,5 +18,7 @@ namespace Proj_AGL.Data
         public DbSet<StatusType> StatusTypes { get; set; }
         public DbSet<Location> Locations { get; set; }
         public DbSet<Request> Requests { get; set; }
+        public DbSet<Course> Courses { get; set; }
+        public DbSet<Grade> Grades { get; set; }
     }
 }

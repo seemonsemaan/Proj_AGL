@@ -72,10 +72,9 @@ namespace Proj_AGL.Controllers
         {
             if (ModelState.IsValid)
             {
+                request = ProcessRequest(request);
                 request.RequestedDate = DateTime.Now;
                 request.UserId = User.FindFirstValue(ClaimTypes.NameIdentifier);
-                request.StatusId = 1;
-                request.LocationId = 1;
                 _context.Add(request);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -84,6 +83,31 @@ namespace Proj_AGL.Controllers
             ViewData["RequestTypeId"] = new SelectList(_context.RequestTypes, "Id", "Name", request.RequestTypeId);
             ViewData["StatusId"] = new SelectList(_context.StatusTypes, "Id", "Name", request.StatusId);
             return View(request);
+        }
+
+        private Request ProcessRequest(Request request)
+        {
+            int requestTypeId = request.RequestTypeId;
+            int statusId = request.StatusId;
+            switch (requestTypeId)
+            {
+                case 1:
+                    request.StatusId = 3;
+                    request.LocationId = 1;
+                    break;
+
+                case 2:
+                    request.StatusId = 3;
+                    request.LocationId = 1;
+                    break;
+
+                case 3:
+                    request.StatusId = 3;
+                    request.LocationId = 4;
+                    break;
+            }
+
+            return request;
         }
 
         // GET: Requests/Delete/5

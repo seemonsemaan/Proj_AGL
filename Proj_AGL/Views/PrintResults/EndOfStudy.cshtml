@@ -1,0 +1,11 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+@model Request
+
+@{
+    ViewData["Title"] = "Print";
+}
+
+<p>This statement is to inform that Student with ID @Model.User.UserName.Split('@')[0] has finished his studies at our university.</p>
